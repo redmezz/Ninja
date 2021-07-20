@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Ninja.Models;
 
@@ -5,13 +6,14 @@ namespace Ninja.Data
 {
   public class ApplicationDbContext : DbContext
   {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-    {
 
+        private readonly IHttpContextAccessor _httpContextAccessor;
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
+    {
+            _httpContextAccessor = httpContextAccessor;
     }
 
-    public DbSet<User> Users { get; set; }
+    
     public DbSet<Forum> Forums { get; set; }
-    public DbSet<Computer> ComputerForum { get; set; }
   }
 }

@@ -6,32 +6,87 @@
     <title>@ViewData["Title"] - Ninja</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Navbar.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ninja</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                  <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-dark" asp-area="" asp-controller="Forum" asp-action="Index">Forum</a>
-                    </li>
-                  </ul>
-                    <p class="nav navbar-text">Hello, @User.Identity.Name!</p>
-                </div>
-            </div>
+            <ul class="nav">
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Forum" asp-action="Index">Forum</a>
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Computer" asp-action="Software">Software</a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="AVHE">AVHE</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="Browser">Browser Support</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="DMLSS">DMLSS</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="Drives">Network Drives</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="Outlook">Outlook</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="Teams">Teams</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Computer" asp-action="Hardware">Hardware</a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="CordsCables">Cords/Cables</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="Monitors">Monitors</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Computer" asp-action="CAC">Common Access Card</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Printer" asp-action="Index">Printer Troubleshooting</a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Printer" asp-action="Usability">Usability</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Printer" asp-action="Parts">Parts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Printer" asp-action="Admin">Printer Administration</a>
+                            <ul>
+                                <li>
+                                    <a asp-area="" asp-controller="Printer" asp-action="Moves">Printer Moves</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Printer" asp-action="Guidelines">Printer Guidelines</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="GetToKnowUs" asp-action="Index">System BIOS</a>
+                </li>
+            </ul>
         </nav>
+        <div class="nav-link">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Role</a>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

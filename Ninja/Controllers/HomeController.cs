@@ -2,11 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ninja.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Ninja.Controllers
 {
@@ -22,6 +18,8 @@ namespace Ninja.Controllers
 
         public IActionResult Index()
         {
+            var user = _http
+
             return View();
         }
 
