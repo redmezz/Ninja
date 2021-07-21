@@ -5,8 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ninja.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 
 namespace Ninja
 {
@@ -26,13 +24,7 @@ namespace Ninja
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("NinjaConnection")));
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
-               options.SignIn.RequireConfirmedAccount = true)
-                .AddDefaultUI()
-                .AddUserStore<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

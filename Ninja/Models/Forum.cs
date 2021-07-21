@@ -10,10 +10,10 @@ namespace Ninja.Models
 
     [DisplayName("Forum Title")]
     public string ForumTitle { get; set; }
-    public string Description { get; set; }
+
     public string ForumAuthor { get; set; }
 
-    public ForumPost ForumPost { get; set; }
+    public string Description { get; set; }
 
   }
 }

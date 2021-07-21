@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ninja.Models;
@@ -6,9 +6,17 @@ using System.Diagnostics;
 
 namespace Ninja.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
+
+        //private readonly IHttpContextAccessor _httpContextAccessor;
+        //private readonly string _user;
+        //public HomeController(IHttpContextAccessor httpContextAccessor)
+        //{
+        //    _httpContextAccessor = httpContextAccessor;
+        //    _user = _httpContextAccessor.HttpContext.User.Identity.Name;
+        //}
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -18,8 +26,6 @@ namespace Ninja.Controllers
 
         public IActionResult Index()
         {
-            var user = _http
-
             return View();
         }
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ninja.Data;
 
 namespace Ninja.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210721203340_AddSoftwareForum")]
+    partial class AddSoftwareForum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +68,7 @@ namespace Ninja.Migrations
                     b.ToTable("ForumPost");
                 });
 
-            modelBuilder.Entity("Ninja.Models.SubForum", b =>
+            modelBuilder.Entity("Ninja.Models.SoftwareForum", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,15 +78,29 @@ namespace Ninja.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ForumPostId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ForumTitle")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("SubForums");
+                    b.HasIndex("ForumPostId");
+
+                    b.ToTable("SoftwareForums");
                 });
 
             modelBuilder.Entity("Ninja.Models.Forum", b =>
+                {
+                    b.HasOne("Ninja.Models.ForumPost", "ForumPost")
+                        .WithMany()
+                        .HasForeignKey("ForumPostId");
+
+                    b.Navigation("ForumPost");
+                });
+
+            modelBuilder.Entity("Ninja.Models.SoftwareForum", b =>
                 {
                     b.HasOne("Ninja.Models.ForumPost", "ForumPost")
                         .WithMany()
