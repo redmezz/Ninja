@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ninja.Data;
 using Microsoft.EntityFrameworkCore;
+using Ninja.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Ninja
 {
@@ -53,12 +55,6 @@ namespace Ninja
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
-
-        //Create default user roles and admin user
-        private void createRolesAndUsers()
-        {
-
         }
     }
 }

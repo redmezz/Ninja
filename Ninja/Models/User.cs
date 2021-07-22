@@ -7,7 +7,7 @@ namespace Ninja.Models
   {
     [Key]
     public int Id { get; set; }
-    public string Role { get; set; }
+    public bool IsAdmin { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Rank { get; set; }
@@ -15,7 +15,7 @@ namespace Ninja.Models
 
     [DataType(DataType.EmailAddress)]
     public string EmailAddress { get; set; }
-
+    [Phone]
     public string PhoneNumber { get; set; }
     public DateTime Joined { get; set; }
   }
