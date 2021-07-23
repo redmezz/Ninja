@@ -5,8 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ninja.Data;
 using Microsoft.EntityFrameworkCore;
-using Ninja.Models;
-using Microsoft.AspNetCore.Identity;
 
 namespace Ninja
 {

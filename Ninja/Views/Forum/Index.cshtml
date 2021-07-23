@@ -1,0 +1,48 @@
+@model Ninja.Models.ForumIndexModel
+
+<div class="container">
+    <div class="row">
+        <div>Borwse Forums</div>
+        <div>
+            <p>Welcome to the <strong>Network Ninja community</strong>.</p>
+            <p>Please read Forum Guidelines before creating a new post.</p>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <tbody>
+                @foreach (var forum in Model.ForumList)
+                {
+                    <tr>
+                        <td>
+                            <div>
+                                <div>
+                                    <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">@forum.Name</a>
+                                </div>
+                                <div>
+                                    @if (forum.HasRecentPost)
+                                    {
+                                        <div class="hasRecentPost">Hot</div>
+                                    }
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                @forum.NumberOfPosts Posts
+                            </div>
+                            <div>
+                                @forum.NumberOfUsers Users
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                @forum.Description
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
